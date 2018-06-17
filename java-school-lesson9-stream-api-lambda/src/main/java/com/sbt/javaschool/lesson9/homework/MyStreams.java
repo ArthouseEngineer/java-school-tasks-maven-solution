@@ -37,6 +37,7 @@ public class MyStreams<T> {
 
     public MyStreams<T> transform(Function<? super T, ? extends T> transformFunction) {
         for (ListIterator<T> listIterator = collection.listIterator(); listIterator.hasNext(); ) {
+            // Создать новый лист
             T transformedItem = transformFunction.apply(listIterator.next());
             listIterator.set(transformedItem);
         }

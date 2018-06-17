@@ -18,7 +18,7 @@ public class AppleUtils {
      * @return Возвращает новый List<Apple> по заданному пользователем критерию отбора
      */
     public static List<Apple> filterApples(List<Apple> inputApples, Predicate<Apple> predicate) {
-        List<Apple> apples = new ArrayList<Apple>();
+        List<Apple> apples = new ArrayList<>();
 
         for (Apple apple : inputApples) {
             if (predicate.test(apple)) {
@@ -29,7 +29,7 @@ public class AppleUtils {
     }
 
     public static List<Apple> filterApplesWithoutLambda(List<Apple> inputApples, IApplePredicate predicate) {
-        List<Apple> apples = new ArrayList<Apple>();
+        List<Apple> apples = new ArrayList<>();
 
         for (Apple apple : inputApples) {
             if (predicate.test(apple)) {

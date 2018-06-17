@@ -1,6 +1,5 @@
 package com.sbt.javaschool.examples.lambdas.apples;
 
-import com.sun.xml.internal.bind.v2.TODO;
 
 import java.util.Arrays;
 import java.util.Comparator;

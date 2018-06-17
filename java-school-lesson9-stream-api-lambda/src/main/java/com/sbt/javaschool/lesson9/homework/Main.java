@@ -27,10 +27,10 @@ public class Main {
         people.add(new Person("Aleksandra", 20));
 
 
-        Map<String, Person> personMap = MyStreams.of(people)
+        Map personMap = MyStreams.of(people)
                 .filter(person -> person.getAge() > 21)
                 .transform(person -> new Person(person.getName(), person.getAge() + 5))
-                .toMap(person -> person.getName(), person -> person);
+                .toMap(person -> person.getName(), person -> person.getAge());
 
         System.out.println(personMap);
 
