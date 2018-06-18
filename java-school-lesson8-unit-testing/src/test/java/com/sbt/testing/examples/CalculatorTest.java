@@ -26,12 +26,13 @@ public class CalculatorTest {
 
     @Parameters
     public static Iterable<Object[]> data() {
+
         return Arrays.asList(new Object[][]{{5, 2, 7}, {1, 1, 2}, {2, 1, 3}});
     }
 
     @Test
-    public void testMultiplication() throws Exception {
-        assertEquals(expected, calculator.add(a, b));
+    public void testMultiply() {
+        assertEquals(expected, calculator.multiply(a, b));
     }
 
 }
