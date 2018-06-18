@@ -12,6 +12,7 @@ import java.util.function.Predicate;
 
 public class AppleUtils {
 
+
     /**
      * @param inputApples Исходный лист для фильтрации
      * @param predicate   Критерий отбора

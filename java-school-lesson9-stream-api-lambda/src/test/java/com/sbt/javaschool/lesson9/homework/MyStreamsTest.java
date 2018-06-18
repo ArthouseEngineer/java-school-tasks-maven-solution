@@ -5,6 +5,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -32,7 +33,7 @@ public class MyStreamsTest {
     @Test
     public void filter() {
         assertEquals("test filter()", MyStreams.class, MyStreams.of(personList)
-                .filter(person -> person.getAge() < 26));
+                .filter(person -> person.getAge() < 26).getClass());
     }
 
     @Test
@@ -45,9 +46,9 @@ public class MyStreamsTest {
 
     @Test
     public void toMap() {
-        assertEquals("test toMap()", Map.class, MyStreams.of(personList)
+        assertEquals("test toMap()", HashMap.class, MyStreams.of(personList)
                 .filter(person -> person.getAge() < 26)
                 .transform(person -> new Person(person.getName(), person.getAge() + 5))
-                .toMap(person -> person.getName(), person -> person.getAge()));
+                .toMap(person -> person.getName(), person -> person.getAge()).getClass());
     }
 }

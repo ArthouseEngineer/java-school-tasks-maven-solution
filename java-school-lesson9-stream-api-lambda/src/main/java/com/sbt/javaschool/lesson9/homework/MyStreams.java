@@ -14,7 +14,7 @@ public class MyStreams<T> {
 
     /**
      * @param collection Коллекция для которой будет создан MyStream
-     * @param <T> Тип коллекции на входе
+     * @param <T>        Тип коллекции на входе
      * @return Возвращает новый MyStream
      */
     public static <T> MyStreams<T> of(Collection<T> collection) {
@@ -36,12 +36,14 @@ public class MyStreams<T> {
     }
 
     public MyStreams<T> transform(Function<? super T, ? extends T> transformFunction) {
+        List<T> tempList = new ArrayList<>();
+
         for (ListIterator<T> listIterator = collection.listIterator(); listIterator.hasNext(); ) {
             // Создать новый лист
             T transformedItem = transformFunction.apply(listIterator.next());
-            listIterator.set(transformedItem);
+            tempList.add(transformedItem);
         }
-        return this;
+        return new MyStreams<>(tempList);
     }
 
     public <K, V> Map<K, V> toMap(Function<? super T, ? extends K> keyMapper,

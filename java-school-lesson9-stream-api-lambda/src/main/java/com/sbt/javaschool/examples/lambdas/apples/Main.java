@@ -6,15 +6,18 @@ import java.util.Comparator;
 import java.util.List;
 
 public class Main {
+    private static final String GREEN_COLOR = "green";
+    private static final String RED_COLOR = "green";
+
     public static void main(String[] args) {
 
         List<Apple> inventory = Arrays.asList(
-                new Apple(120, "green"),
-                new Apple(190, "red"),
-                new Apple(190, "green"),
-                new Apple(120, "red"),
-                new Apple(170, "green"),
-                new Apple(170, "red")
+                new Apple(120, GREEN_COLOR),
+                new Apple(190, RED_COLOR),
+                new Apple(190, GREEN_COLOR),
+                new Apple(120, RED_COLOR),
+                new Apple(170, GREEN_COLOR),
+                new Apple(170, RED_COLOR)
         );
 
 
@@ -36,7 +39,7 @@ public class Main {
 
         System.out.println("Big green Apples with lambda chain");
         System.out.println(AppleUtils.filterApples(inventory, a -> {
-            return a.getWeight() > 150 && "green".equals(a.getColor());
+            return a.getWeight() > 150 && GREEN_COLOR.equals(a.getColor());
         }) + "\n" );
 
 
@@ -50,7 +53,6 @@ public class Main {
         AppleUtils.doWithApples(inventory,System.out::println);
         System.out.println();
 
-        // inventory - это Mutable object
         inventory.sort(Comparator.comparing(Apple::getWeight));
 
         // К исходному объекту применен компоратор, яблоки теперь храняться в отсортированном виде.
