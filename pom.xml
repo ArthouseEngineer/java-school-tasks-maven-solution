@@ -8,6 +8,12 @@
     <artifactId>java-school-tasks-maven-solution</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>java-school-lesson1</module>
+        <module>java-school-lesson9-stream-api-lambda</module>
+        <module>java-school-lesson11-multithreading</module>
+        <module>java-school-lesson8-unit-testing</module>
+    </modules>
 
     <dependencies>
         <dependency>
@@ -20,14 +26,9 @@
             <groupId>org.mockito</groupId>
             <artifactId>mockito-all</artifactId>
             <version>1.10.19</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
-    <modules>
-        <module>java-school-lesson1</module>
-        <module>java-school-lesson9-stream-api-lambda</module>
-        <module>java-school-lesson11-multithreading</module>
-        <module>java-school-lesson8-unit-testing</module>
-    </modules>
 
     <build>
         <plugins>
@@ -43,9 +44,32 @@
             <plugin>
                 <groupId>org.sonarsource.scanner.maven</groupId>
                 <artifactId>sonar-maven-plugin</artifactId>
-                <version>3.2</version>
+                <version>3.4.0.905</version>
             </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>1.9.1</version>
+                <executions>
+                    <execution>
+                        <id>add-source</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>src/test/java</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+  <!--          <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>2.7.1</version>
+            </plugin>-->
         </plugins>
     </build>
-
 </project>
