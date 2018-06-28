@@ -16,6 +16,8 @@ public class ThreadPool implements IContext {
     private volatile int nCompletedTask = 0;
     private volatile int nInterruptedTasks = 0;
 
+    //TODO :: Почитать о Complitable future...
+
     public ThreadPool(Runnable callback, Runnable... tasks) {
         threadPool = new ArrayList<>();
         Barrier barrier = new Barrier(tasks.length);

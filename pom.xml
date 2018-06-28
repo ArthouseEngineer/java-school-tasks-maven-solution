@@ -13,6 +13,7 @@
         <module>java-school-lesson9-stream-api-lambda</module>
         <module>java-school-lesson11-multithreading</module>
         <module>java-school-lesson8-unit-testing</module>
+        <module>java-school-concurrent-examples</module>
     </modules>
 
     <dependencies>
