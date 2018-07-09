@@ -1,9 +1,6 @@
-package com.sbt.sockets.examples.other;
+package com.sbt.sockets.sockets.examples.other;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
-import java.io.IOException;
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;

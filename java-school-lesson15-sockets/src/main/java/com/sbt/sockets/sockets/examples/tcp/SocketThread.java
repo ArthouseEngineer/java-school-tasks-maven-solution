@@ -1,4 +1,4 @@
-package com.sbt.sockets.examples.tcp;
+package com.sbt.sockets.sockets.examples.tcp;
 
 import java.io.BufferedReader;
 import java.io.IOException;

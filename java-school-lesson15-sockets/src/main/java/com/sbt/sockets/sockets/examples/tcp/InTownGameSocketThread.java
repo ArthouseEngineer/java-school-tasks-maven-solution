@@ -1,13 +1,22 @@
-package com.sbt.sockets.examples.tcp;
+package com.sbt.sockets.sockets.examples.tcp;
 
 import java.io.*;
-import java.net.InetAddress;
 import java.net.Socket;
 
-public class ClientSocket {
-    public static void main(String[] args) throws IOException {
-        InetAddress address = InetAddress.getByName("localhost");
-        Socket socket = new Socket(address, 2018);
+import com.sbt.sockets.sockets.examples.other.*;
+import com.sbt.sockets.sockets.examples.other.InTownGame;
+
+public class InTownGameSocketThread extends Thread {
+
+    private Socket socket;
+    private InTownGame game = new InTownGame();
+
+    public InTownGameSocketThread(Socket socket) {
+        this.socket = socket;
+    }
+
+    @Override
+    public void run() {
 
         try (
                 BufferedReader bufferedReader = new BufferedReader(
@@ -15,14 +24,17 @@ public class ClientSocket {
                 BufferedWriter bufferedWriter = new BufferedWriter(
                         new OutputStreamWriter(socket.getOutputStream()))
         ) {
+            bufferedWriter.write("Назовите город :");
             bufferedWriter.newLine();
             bufferedWriter.flush();
             while (socket.isConnected()) {
                 String line = bufferedReader.readLine();
-                bufferedWriter.write((line));
+                bufferedWriter.write(game.step(line));
                 bufferedWriter.newLine();
                 bufferedWriter.flush();
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

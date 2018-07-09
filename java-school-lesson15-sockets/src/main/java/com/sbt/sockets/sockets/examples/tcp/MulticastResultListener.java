@@ -1,13 +1,11 @@
-package com.sbt.sockets.examples.tcp;
+package com.sbt.sockets.sockets.examples.tcp;
 
 
-import com.sbt.sockets.examples.other.*;
+import com.sbt.sockets.sockets.examples.other.*;
+import com.sbt.sockets.sockets.examples.other.StepListener;
 
 import java.io.IOException;
 import java.net.*;
-import java.util.Scanner;
-
-import static java.net.InetAddress.getByName;
 
 public class MulticastResultListener implements StepListener {
 

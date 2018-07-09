@@ -1,4 +1,4 @@
-package com.sbt.sockets.examples.tcp;
+package com.sbt.sockets.sockets.examples.tcp;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;
