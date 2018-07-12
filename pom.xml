@@ -22,6 +22,7 @@
         <module>java-school-lesson8-unit-testing</module>
         <module>java-school-concurrent-examples</module>
         <module>java-school-lesson15-sockets</module>
+        <module>java-school-lesson17-good-code</module>
     </modules>
     <build>
         <plugins>

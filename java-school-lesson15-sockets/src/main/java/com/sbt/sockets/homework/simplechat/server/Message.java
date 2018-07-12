@@ -18,7 +18,6 @@ public class Message implements Serializable {
     public Message(String login, String message) {
         this.login = login;
         this.message = message;
-        this.time = java.util.Calendar.getInstance().getTime();
     }
 
 
