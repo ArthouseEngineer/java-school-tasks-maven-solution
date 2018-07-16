@@ -23,6 +23,7 @@
         <module>java-school-concurrent-examples</module>
         <module>java-school-lesson15-sockets</module>
         <module>java-school-lesson17-good-code</module>
+        <module>java-school-lesson18-good-code-design-patterns</module>
     </modules>
     <build>
         <plugins>
