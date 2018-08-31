@@ -3,10 +3,12 @@ package com.sbt.sockets.sockets.examples.tcp;
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
-public class ClientSocket {
+public  class ClientSocket {
     public static void main(String[] args) throws IOException {
-        InetAddress address = InetAddress.getByName("localhost");
+        /*InetAddress address = InetAddress.getByName("localhost");
         Socket socket = new Socket(address, 2018);
 
         try (
@@ -23,6 +25,11 @@ public class ClientSocket {
                 bufferedWriter.newLine();
                 bufferedWriter.flush();
             }
-        }
+        }*/
+       char ch = '0';
+       while (ch <= 9) {
+           System.out.println(ch++);
+       }
+
     }
 }

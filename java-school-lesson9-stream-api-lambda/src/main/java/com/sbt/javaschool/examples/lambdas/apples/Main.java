@@ -37,11 +37,6 @@ public class Main {
         System.out.println("Big Apples with Lambda expression!");
         System.out.println(AppleUtils.filterApples(inventory,apple -> apple.getWeight() > 150) + "\n");
 
-        System.out.println("Big green Apples with lambda chain");
-        System.out.println(AppleUtils.filterApples(inventory, a -> {
-            return a.getWeight() > 150 && GREEN_COLOR.equals(a.getColor());
-        }) + "\n" );
-
 
         System.out.println("Only green apples with lambda");
         System.out.println(AppleUtils.filterApples(inventory, apple -> "green".equals(apple.getColor())) + "\n");

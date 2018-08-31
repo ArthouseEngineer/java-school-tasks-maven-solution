@@ -23,11 +23,13 @@ public class ThreadPool implements IContext {
         Barrier barrier = new Barrier(tasks.length);
 
         Thread.setDefaultUncaughtExceptionHandler((t, e) -> {
-            System.out.println("Необработанное исключение: " + e);
+            System.out.println("UncaughtException..." + e);
             synchronized (lock) {
                 nFailedTasks++;
             }
+            // TODO Rewrite this code.
         });
+
 
         for (Runnable task : tasks) {
             Thread newThread = createNewThread(task, barrier);

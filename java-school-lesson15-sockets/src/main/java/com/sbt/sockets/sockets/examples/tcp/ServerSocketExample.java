@@ -1,11 +1,12 @@
 package com.sbt.sockets.sockets.examples.tcp;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.net.ServerSocket;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class ServerSocketExample {
+public class ServerSocketExample  {
 
     public static final int PORT = 2018;
 

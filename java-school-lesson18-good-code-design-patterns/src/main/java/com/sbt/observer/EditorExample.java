@@ -11,14 +11,13 @@ import java.net.URL;
 public class EditorExample {
     public static void main(String[] args) {
         Editor editor = new Editor();
-        editor.events.subscribe("open", new LogOpenListener(URL.class.getClass().getResource("/log.txt")));
-        editor.events.subscribe("save", new EmailNotificationListener("admin@example.com"));
-
+        editor.openFile(URL.class.getClass().getResource("/testFile.txt"));
         try {
-            editor.openFile(URL.class.getClass().getResource("/testFile.txt"));
             editor.saveFile();
         } catch (Exception e) {
             e.printStackTrace();
         }
+        editor.events.subscribe("open", new LogOpenListener(URL.class.getClass().getResource("/log.txt")));
+        editor.events.subscribe("save", new EmailNotificationListener("admin@example.com"));
     }
 }

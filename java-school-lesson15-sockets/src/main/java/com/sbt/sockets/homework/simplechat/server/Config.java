@@ -14,10 +14,10 @@ public class Config {
 
     static {
         Properties properties = new Properties();
-        InputStream propertiesFile = null;
+        InputStream propertiesFile;
 
         try {
-            propertiesFile = Config.class.getClassLoader().getResourceAsStream("server.properties");
+            propertiesFile = Config.class.getClassLoader().getResourceAsStream(PROPERTIES_FILE);
             properties.load(propertiesFile);
 
             PORT = Integer.parseInt(properties.getProperty("PORT"));

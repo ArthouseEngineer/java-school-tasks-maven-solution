@@ -5,10 +5,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.net.SocketException;
-import java.util.ArrayList;
-import java.util.Timer;
-
-import com.sbt.sockets.homework.simplechat.server.*;
 
 public class ClientThread extends Thread {
 

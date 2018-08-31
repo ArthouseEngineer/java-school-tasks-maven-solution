@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 public class EventManager {
+
     Map<String, List<IEventListener>> listeners = new HashMap<>();
 
     public EventManager(String... operations) {
@@ -17,11 +18,22 @@ public class EventManager {
         }
     }
 
+    /**
+     * Метод подписи на возникщее события в зависимости от текущего слушаетеля.
+     *
+     * @param eventType Тип события
+     * @param listener  Слушатель события
+     */
     public void subscribe(String eventType, IEventListener listener) {
         List<IEventListener> users = listeners.get(eventType);
         users.add(listener);
     }
 
+    /**
+     * @param eventType
+     * @param listener
+     * @see  subscribe method
+     */
     public void unsubscribe(String eventType, IEventListener listener) {
         List<IEventListener> users = listeners.get(eventType);
         users.remove(users.indexOf(listener));

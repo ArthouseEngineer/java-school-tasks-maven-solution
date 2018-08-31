@@ -13,29 +13,29 @@ import java.util.Arrays;
 import static org.junit.Assert.assertEquals;
 
 
-@RunWith(Parameterized.class)
+//@RunWith(Parameterized.class)
 public class CalculatorTest {
 
-    @Parameter
+  /*  @Parameter
     public int a;
 
     @Parameter(1)
     public int b;
 
     @Parameter(2)
-    public int expected;
+    public int expected;*/
 
     private Calculator calculator = new Calculator();
 
-    @Parameters
+/*    @Parameters
     public static Iterable<Object[]> data() {
 
         return Arrays.asList(new Object[][]{{5, 2, 7}, {1, 1, 2}, {2, 1, 3}});
-    }
+    }*/
 
     @Test
     public void testMultiply() {
-        assertEquals(expected, calculator.multiply(a, b));
+        assertEquals(9, calculator.multiply(4, 5));
     }
 
 }

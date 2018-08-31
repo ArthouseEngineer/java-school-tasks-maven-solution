@@ -15,7 +15,7 @@ public class LogOpenListener implements IEventListener {
     public void update(String eventType, File file) {
         System.out.println
                 (
-                        "Save to log " + log + " operation type : " + eventType +
+                        " Save to log " + log + " operation type : " + eventType +
                         " operation with the following file : " + file.getName()
                 );
     }
