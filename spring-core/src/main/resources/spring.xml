@@ -8,9 +8,30 @@
         <constructor-arg index="0" value="1"/>
         <constructor-arg index="1" value="John Green"/>
     </bean>
+
     <bean id="eventLogger" class="com.loggers.ConsoleEventLoggerImpl"/>
+
     <bean id="app" class="com.App">
         <constructor-arg index="0" ref="client"/>
         <constructor-arg index="1" ref="eventLogger"/>
+    </bean>
+
+    <bean id="dateFormat" class="java.text.DateFormat" factory-method="getDateTimeInstance"/>
+
+    <bean id="event" class="com.loggers.Event" scope="prototype">
+        <constructor-arg>
+            <bean class="java.util.Date"/>
+        </constructor-arg>
+        <constructor-arg ref="dateFormat">
+        </constructor-arg>
+    </bean>
+
+    <bean id="fileEventLogger" class="com.loggers.FileEventLogger" init-method="init">
+        <constructor-arg value="target/eventLog.txt"/>
+    </bean>
+
+    <bean id="cacheFileEventLogger" class="com.loggers.CacheFileEventLogger" init-method="destroy">
+        <constructor-arg index="0" value="target/eventsLog.txt"/>
+        <constructor-arg index="1" value="5"/>
     </bean>
 </beans>
