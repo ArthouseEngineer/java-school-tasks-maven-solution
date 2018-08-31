@@ -30,8 +30,8 @@
         <constructor-arg value="target/eventLog.txt"/>
     </bean>
 
-    <bean id="cacheFileEventLogger" class="com.loggers.CacheFileEventLogger" init-method="destroy">
-        <constructor-arg index="0" value="target/eventsLog.txt"/>
+    <bean id="cacheFileEventLogger" class="com.loggers.CacheFileEventLogger" parent="fileEventLogger"
+          destroy-method="destroy">
         <constructor-arg index="1" value="5"/>
     </bean>
 </beans>
