@@ -4,34 +4,23 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+
+    <import resource="loggers.xml"></import>
+
     <bean id="client" class="com.Entity.Client">
         <constructor-arg index="0" value="1"/>
         <constructor-arg index="1" value="John Green"/>
-    </bean>
-
-    <bean id="dateFormat" class="java.text.DateFormat" factory-method="getDateTimeInstance"/>
-
-    <bean id="event" class="com.loggers.Event" scope="prototype">
-        <constructor-arg>
-            <bean class="java.util.Date"/>
-        </constructor-arg>
-        <constructor-arg ref="dateFormat">
-        </constructor-arg>
-    </bean>
-
-    <bean id="consoleEventLogger" class="com.loggers.ConsoleEventLoggerImpl"/>
-
-    <bean id="fileEventLogger" class="com.loggers.FileEventLogger" init-method="init">
-        <constructor-arg value="target/eventLog.txt"/>
-    </bean>
-
-    <bean id="cacheFileEventLogger" class="com.loggers.CacheFileEventLogger" parent="fileEventLogger"
-          destroy-method="destroy">
-        <constructor-arg index="1" value="5"/>
+        <property name="greeting" value="Hello there!"/>
     </bean>
 
     <bean id="app" class="com.App">
-        <constructor-arg index="0" ref="client"/>
-        <constructor-arg index="1" ref="fileEventLogger"/>
+        <constructor-arg ref="cacheFileEventLogger"/>
+        <constructor-arg>
+            <map>
+                <entry key="INFO" value-ref="consoleEventLogger"/>
+                <entry key="ERROR" value-ref="combinedEventLogger"/>
+            </map>
+        </constructor-arg>
+        <constructor-arg ref="client"/>
     </bean>
 </beans>
